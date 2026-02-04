@@ -1,13 +1,13 @@
 import React from 'react';
-import { ChevronRight, Zap, Database, PlayCircle, Layout, Globe, Code, CheckCircle2, Clock } from 'lucide-react';
+import { ChevronRight, Zap, Database, PlayCircle, Layout, Globe, Code, CheckCircle2, Gift, BookOpen, Users } from 'lucide-react';
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white selection:bg-blue-500 font-sans">
       
-      {/* 1. 상단 알림 바 */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-2 text-center text-sm font-bold">
-        📢 2월 8일(일) 저녁 8시, 선착순 100명 무료 특강 오픈!
+      {/* 1. 상단 긴급 공지 바 */}
+      <div className="bg-gradient-to-r from-red-600 to-blue-600 py-2 text-center text-sm font-bold animate-pulse">
+        ⚠️ 현재 신청 폭주 중! 선착순 100명 마감 임박
       </div>
 
       {/* 2. Hero Section */}
@@ -15,116 +15,93 @@ export default function Page() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[700px] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/30 via-transparent to-transparent opacity-50 blur-3xl" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-8 leading-[1.15]">
-            구글 AI 생태계를 손에 쥔 사람이 <br/> 
+            구글 AI 생태계를 쥔 사람이 <br/> 
             <span className="bg-gradient-to-r from-[#4285f4] via-[#ea4335] to-[#fbbc04] bg-clip-text text-transparent">
               2026년 AI를 지배합니다
             </span>
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 mb-10 leading-relaxed max-w-2xl mx-auto">
-            매일 쏟아지는 도구를 쫓아가는 삶은 오늘로 끝내십시오. <br/>
-            이제는 도구가 아닌 <strong>'생태계'</strong>를 설계할 시간입니다.
+            도구를 하나씩 쫓아다니면 영원히 따라잡을 수 없습니다.<br/>
+            이제는 <strong>'흐름을 설계하는 사람'</strong>이 이기는 시대입니다.
           </p>
           
-          {/* 카운트다운 타이머 UI (첨부파일 스타일 반영) */}
-          <div className="flex justify-center gap-4 mb-12">
-            <TimerUnit label="DAYS" value="04" />
-            <TimerUnit label="HOURS" value="12" />
-            <TimerUnit label="MINS" value="45" />
-            <TimerUnit label="SECS" value="32" />
+          <button className="group bg-white text-black px-12 py-5 rounded-full font-black text-xl hover:scale-105 transition-all flex items-center justify-center mx-auto gap-3 shadow-[0_0_30px_rgba(66,133,244,0.4)]">
+            2/8(일) 무료특강 신청하기 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </section>
+
+      {/* 3. 참여 혜택 섹션 (PDF 내용 반영) */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="bg-zinc-900/50 border border-zinc-800 rounded-[3rem] p-8 md:p-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center flex items-center justify-center gap-3">
+            <Gift className="text-yellow-400" /> 참여자 전원 15만원 상당 선물 증정
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <GiftItem title="나노바나나 활용법" desc="AI 이미지 생성 실전 가이드" price="29,000원" />
+            <GiftItem title="지식창업 로드맵" desc="수익화 단계별 전략 가이드" price="39,000원" />
+            <GiftItem title="창업 적합도 리스트" desc="시장성 진단 핵심 체크리스트" price="19,000원" />
+            <GiftItem title="비즈니스 앱 템플릿" desc="Stitch 활용 업무 자동화 툴" price="59,000원" />
           </div>
-
-          <button className="group bg-white text-black px-12 py-5 rounded-full font-black text-xl hover:scale-105 transition-all flex items-center justify-center mx-auto gap-3 shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-            무료 특강 지금 신청하기 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-          </button>
         </div>
       </section>
 
-      {/* 3. 문제 제기 (Storytelling Section) */}
-      <section className="max-w-3xl mx-auto px-6 py-20 border-y border-zinc-900">
-        <div className="space-y-8 text-zinc-300 text-lg leading-loose">
-          <p className="text-2xl font-bold text-white text-center mb-12 italic">"새로운 도구가 나올 때마다 불안하지 않으셨나요?"</p>
-          <p>어제는 이미지 AI, 오늘은 영상 AI... 도구는 늘어나는데 정작 내 비즈니스에 어떻게 쓸지 몰라 멈칫하게 됩니다.</p>
-          <p className="bg-zinc-900/50 p-6 rounded-2xl border-l-4 border-blue-500">
-            <strong>전환점은 구글의 행보에 있습니다.</strong> 구글은 단순히 도구를 만드는 것이 아니라, 기획부터 제작, 배포까지 하나로 이어지는 '거대한 줄기'를 완성했습니다.
-          </p>
-          <p>2026년, 도구를 수집하는 사람은 지치고, 흐름을 설계하는 사람은 압도적인 격차를 벌릴 것입니다.</p>
+      {/* 4. 스토리텔링 섹션 */}
+      <section className="max-w-3xl mx-auto px-6 py-20 text-zinc-300 text-lg leading-loose space-y-8">
+        <p className="text-2xl font-bold text-white text-center mb-12 italic">"배우면 배울수록 오히려 목이 마르지 않나요?"</p>
+        <p>새 도구를 익히면 앞서가는 것 같지만, 막상 "그래서 이걸로 뭘 하지?"라는 질문 앞에 멈칫하게 됩니다.</p>
+        <p className="bg-blue-900/10 border-l-4 border-blue-500 p-6 rounded-r-2xl">
+          구글은 지금 <strong>제미나이, 노트북LM, 베오, 플로우, 안티그래비티</strong>를 하나로 잇는 거대한 생태계를 구축했습니다. 개별 도구가 아닌 이 '연결'의 흐름을 아는 사람만이 2026년을 선점합니다.
+        </p>
+      </section>
+
+      {/* 5. 커리큘럼 섹션 (PDF 1차~4차 수업 내용 반영) */}
+      <section className="max-w-6xl mx-auto px-6 py-24 bg-zinc-950 rounded-[4rem]">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">특강 커리큘럼</h2>
+        <div className="space-y-6">
+          <CurriculumRow step="1단계" title="2026 AI 시장의 판을 읽는 법" detail="구글이 설계한 생태계의 구조적 이해와 변화" />
+          <CurriculumRow step="2단계" title="압도적 퀄리티의 콘텐츠 생산" detail="제미나이 + 베오 + 나노바나나 워크플로우" />
+          <CurriculumRow step="3단계" title="나만의 지식 베이스 구축" detail="노트북LM을 활용한 비즈니스 자산화" />
+          <CurriculumRow step="4단계" title="수익화 자동화 시스템 구축" detail="스티치 & 안티그래비티 기반 무자본 창업" />
         </div>
       </section>
 
-      {/* 4. 구글 AI 생태계 상세 (Grid) */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">우리가 다룰 핵심 생태계</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <DetailCard 
-            title="기획 & 지식 베이스" 
-            items={["Gemini: 비즈니스 의사결정 브레인", "NotebookLM: 나만의 지식 자산화"]}
-            color="border-blue-500/30"
-          />
-          <DetailCard 
-            title="콘텐츠 크리에이티브" 
-            items={["Imagen 3: 고해상도 이미지 생성", "Veo: 영화급 영상 제작 시스템"]}
-            color="border-red-500/30"
-          />
-          <DetailCard 
-            title="자동화 & 에이전트" 
-            items={["Opal: 스스로 움직이는 지능형 비서", "Flow: 복합 업무 자동화 워크플로우"]}
-            color="border-yellow-500/30"
-          />
-          <DetailCard 
-            title="웹 & 앱 빌더" 
-            items={["Anti-Gravity: 초고속 웹 빌딩", "Stitch: 노코드 비즈니스 앱 구현"]}
-            color="border-green-500/30"
-          />
-        </div>
+      {/* 6. 최종 CTA */}
+      <section className="py-32 px-6 text-center">
+        <h2 className="text-4xl md:text-6xl font-black mb-8">기회는 준비된 사람에게만 <br className="hidden md:block"/> 선물을 줍니다.</h2>
+        <p className="text-zinc-500 mb-12 text-xl">이 강의는 무료이지만, 강의 내용은 결코 가볍지 않습니다.</p>
+        <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-16 py-6 rounded-full font-black text-2xl hover:scale-105 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)]">
+          무료 신청하고 혜택 받기
+        </button>
+        <p className="mt-6 text-zinc-600 font-medium italic">2/8(일) 저녁 8시 | ZOOM 라이브 진행</p>
       </section>
 
-      {/* 5. 최종 CTA 섹션 */}
-      <section className="bg-zinc-900/30 py-24 px-6 text-center border-t border-zinc-900">
-        <h2 className="text-4xl font-bold mb-6">판을 읽는 사람만이 살아남습니다</h2>
-        <p className="text-zinc-400 mb-10">이 모든 것을 연결하는 실전 비즈니스 전략, 2월 8일에 공개합니다.</p>
-        <div className="inline-flex flex-col items-center">
-          <button className="bg-blue-600 text-white px-12 py-5 rounded-full font-black text-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/20">
-            선착순 무료 참가 신청
-          </button>
-          <p className="mt-4 text-sm text-zinc-500 flex items-center gap-2">
-            <CheckCircle2 size={16} /> 2026년 최신 데이터 기준 커리큘럼
-          </p>
-        </div>
-      </section>
-
-      {/* 하단 푸터 */}
-      <footer className="py-10 text-center text-zinc-600 text-sm">
-        &copy; 2026 구글 AI 생태계 마스터 클래스. All rights reserved.
+      <footer className="py-10 text-center text-zinc-800 border-t border-zinc-900">
+        &copy; 2026 Google AI Ecosystem Masterclass
       </footer>
     </div>
   );
 }
 
-function TimerUnit({ label, value }: { label: string, value: string }) {
+function GiftItem({ title, desc, price }: { title: string, desc: string, price: string }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-16 h-16 md:w-20 md:h-20 bg-zinc-900 border border-zinc-800 rounded-xl flex items-center justify-center text-2xl md:text-3xl font-black mb-2">
-        {value}
-      </div>
-      <span className="text-[10px] md:text-xs font-bold text-zinc-500 tracking-widest">{label}</span>
+    <div className="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 text-center">
+      <div className="text-zinc-500 line-through text-xs mb-1">{price}</div>
+      <div className="font-bold text-lg mb-2 text-white">{title}</div>
+      <div className="text-zinc-400 text-xs leading-tight">{desc}</div>
     </div>
   );
 }
 
-function DetailCard({ title, items, color }: { title: string, items: string[], color: string }) {
+function CurriculumRow({ step, title, detail }: { step: string, title: string, detail: string }) {
   return (
-    <div className={`p-8 rounded-[2rem] bg-zinc-900/30 border ${color} hover:bg-zinc-900/50 transition-all`}>
-      <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-current" /> {title}
-      </h3>
-      <ul className="space-y-4 text-zinc-400">
-        {items.map((item, idx) => (
-          <li key={idx} className="flex items-start gap-3">
-            <CheckCircle2 size={18} className="text-blue-500 mt-1 shrink-0" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col md:flex-row md:items-center gap-4 p-8 bg-zinc-900/30 border border-zinc-900 rounded-3xl hover:border-blue-500/50 transition-colors">
+      <div className="text-blue-500 font-black text-xl shrink-0 uppercase">{step}</div>
+      <div className="h-px md:h-10 md:w-px bg-zinc-800" />
+      <div>
+        <div className="text-xl font-bold mb-1">{title}</div>
+        <div className="text-zinc-500">{detail}</div>
+      </div>
     </div>
   );
 }
